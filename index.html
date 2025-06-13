@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta content="ManiFeel: Benchmarking and Understanding Visuotactile Manipulation Policy Learning" name="description"/>
+<meta content="Representation Learning, Tactile Sensing, Imitation Learning" name="keywords"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>ManiFeel: Benchmarking and Understanding Visuotactile Manipulation Policy Learning</title>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet"/>
+<link href="./static/css/bulma.min.css" rel="stylesheet"/>
+<link href="./static/css/bulma-carousel.min.css" rel="stylesheet"/>
+<link href="./static/css/bulma-slider.min.css" rel="stylesheet"/>
+<link href="./static/css/fontawesome.all.min.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" rel="stylesheet"/>
+<link href="./static/css/index.css" rel="stylesheet"/>
+<link href="./static/images/favicon.svg" rel="icon"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script defer="" src="./static/js/fontawesome.all.min.js"></script>
+<script src="./static/js/bulma-carousel.min.js"></script>
+<script src="./static/js/bulma-slider.min.js"></script>
+<script src="./static/js/index.js"></script>
+<style>
+:root {
+  --highlight: #3F72AF;
+  --highlight-light: #DBE2EF;
+  --highlight-dark: #112D4E;
+  --text-dark: #222;
+  --background: #F9F7F7;
+}
+
+.hl {
+  color: var(--highlight);
+  font-weight: 600;
+}
+
+a {
+  color: var(--highlight);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--highlight-dark);
+  text-decoration: underline;
+}
+
+.button.is-dark {
+  background-color: var(--highlight-dark);
+  border-color: var(--highlight-dark);
+}
+
+.button.is-dark:hover {
+  background-color: var(--highlight);
+  border-color: var(--highlight);
+}
+
+html {
+  background-color: var(--background);
+  color: var(--text-dark);
+}
+</style><style>
+h1, h2, h3, h4, h5, h6 {
+  color: var(--highlight-dark);
+}
+
+.publication-title {
+  color: var(--highlight-dark);
+}
+
+.title.is-1, .title.is-2, .title.is-3 {
+  color: var(--highlight-dark);
+}
+</style></head>
+<body>
+<section class="hero">
+<div class="hero-body">
+<div class="container is-max-desktop">
+<div class="columns is-centered">
+<div class="column has-text-centered">
+<h1 class="title is-1 publication-title">ManiFeel: Benchmarking and Understanding Visuotactile Manipulation Policy Learning</h1>
+<div class="is-size-5 publication-authors">
+<span class="author-block">
+<a href="https://scholar.google.com/citations?user=cy6AlQMAAAAJ&amp;hl=en">Quan Khanh Luu</a><sup>*</sup>,
+            </span>
+<span class="author-block">
+<a href="https://scholar.google.com/citations?user=GSEFMvQAAAAJ&amp;hl=en-US&amp;oi=ao">Pokuang Zhou</a><sup>*</sup>,
+            </span>
+<span class="author-block">
+<a href="https://zhengtongxu.github.io/website/">Zhengtong Xu</a><sup>*</sup>,
+            </span>
+<span class="author-block">
+<a href="https://openreview.net/profile?id=~Zhiyuan_Zhang18">Zhiyuan Zhang</a>,
+            </span>
+<span class="author-block">
+<a href="https://engineering.purdue.edu/~qqiu/#home">Qiang Qiu</a>,
+            </span>
+<span class="author-block">
+<a href="https://www.purduemars.com/">Yu She</a>
+</span>
+</div>
+<div class="is-size-5 publication-authors">
+<span class="author-block"><sup>*</sup>Equal Contribution</span>
+</div>
+<div class="is-size-5 publication-authors">
+<span class="author-block">Purdue University, USA</span>
+</div>
+<div class="column has-text-centered">
+<div class="publication-links">
+<!-- PDF Link. -->
+<span class="link-block">
+<a class="external-link button is-normal is-rounded is-dark" href="https://www.arxiv.org/pdf/2505.18472">
+<span class="icon">
+<i class="ai ai-arxiv"></i>
+</span>
+<span>Paper</span>
+</a>
+</span>
+<!-- Video Link. -->
+<span class="link-block">
+<a class="external-link button is-normal is-rounded is-dark" href="https://drive.google.com/file/d/1XTDJ-G4aIvoBlMqqecftmqVNalBPz_Mz/view?usp=sharing">
+<span class="icon">
+<i class="fab fa-youtube"></i>
+</span>
+<span>Video</span>
+</a>
+</span>
+<!-- Code Link. -->
+<span class="link-block">
+<a class="external-link button is-normal is-rounded is-dark" href="">
+<span class="icon">
+<i class="fab fa-github"></i>
+</span>
+<span>Code (Coming Soon)</span>
+</a>
+</span>
+<!-- Dataset Link. -->
+<span class="link-block">
+<a class="external-link button is-normal is-rounded is-dark" href="">
+<span class="icon">
+<i class="far fa-images"></i>
+</span>
+<span>Data (Coming Soon)</span>
+</a>
+</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="container is-max-desktop">
+<!-- Abstract. -->
+<div class="columns is-centered has-text-centered">
+<div class="column is-four-fifths">
+<h2 class="title is-3">Abstract</h2>
+<div class="content has-text-centered">
+<img alt="First Page Image" id="teaser" src="./static/images/Figure1.jpg" width="100%"/>
+<div class="content has-text-justified">
+<br>
+<p>
+            ManiFeel, a reproducible and scalable simulation benchmark for studying supervised visuotactile manipulation policies across a diverse set of tasks and scenarios. ManiFeel presents a comprehensive benchmark suite spanning a diverse set of manipulation tasks, evaluating various policies, input modalities, and tactile representation methods. Through
+            extensive experiments, our analysis reveals key factors that influence supervised visuotactile policy learning, identifies the types of tasks where tactile sensing is most beneficial, and highlights promising directions for future research in visuotactile policy learning. ManiFeel aims to establish a reproducible benchmark for
+            supervised visuotactile policy learning, supporting progress in visuotactile manipulation and perception. To facilitate future research and ensure reproducibility, we will release our codebase, datasets, training logs, and pretrained checkpoints.
+          </p>
+</div>
+</div>
+</div>
+<!--/ Abstract. -->
+</div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Tactile Reactive Experiments</h2>
+        <div class="content has-text-justified">
+          <p>
+            We evaluate visuotactile and vision-only policies in a real-world tactile sorting task.
+            The robot must distinguish between two visually similar objects—a table tennis ball and a golf ball—and place them into designated bowls.
+          </p>
+          <p>
+            Under human disturbances during rollouts, the visuotactile policy demonstrates adaptive behavior:
+            when a ball is removed, the robot detects the loss and actively re-initiates the search.
+            In contrast, the vision-only policy fails to respond and cannot recover.
+          </p>
+        </div>
+
+        <div class="columns" style="margin-top: 2rem;">
+          <div class="column">
+            <div class="content has-text-centered">
+              <h3 class="title is-5"><span class="hl">Visuotactile</span></h3>
+              <video id="ReactiveVisuotactile" autoplay muted loop playsinline width="100%">
+                <source src="./static/videos/Visuotactile_May17.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content has-text-centered">
+              <h3 class="title is-5">Vision-only</h3>
+              <video id="ReactiveVision" autoplay muted loop playsinline width="100%">
+                <source src="./static/videos/Vision_May17.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">ManiFeel Benchmark: Tasks and Policy Rollouts in Simulation</h2>
+        <div class="content has-text-justified">
+          <p>
+            We present a diverse suite of manipulation tasks to systematically evaluate supervised visuotactile policy learning across varying sensory conditions, ranging from clear vision to visually degraded or fully occluded scenarios. 
+            The tasks are organized into six categories based on their reliance on visual and tactile feedback.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  <!-- Vision-Limited Manipulation Section -->
+  <div class="content has-text-left" style="margin-top: 2rem;">
+    <h3 class="title is-4 has-text-centered">Manipulation in Occluded and Low-Light Scenarios</h3>
+    <p class="has-text-justified">
+      These tasks require strong tactile sensing to handle scenarios with visual occlusion or low lighting. 
+      They highlight how tactile feedback enables robust manipulation when visual input is unreliable or unavailable.
+    </p>
+  </div>
+
+  <!-- Tactile-Augmented Policy -->
+  <div class="content has-text-left" style="margin-top: 2rem;">
+    <h4 class="title is-5 has-text-centered">
+      <span class="hl">Successful</span> Rollouts of <span class="hl">Tactile</span>-augmented Policy
+    </h4>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <div class="content has-text-centered">
+        <h5 class="title is-6">
+          Blind Insertion<br>
+          <span class="tag is-rounded hl" style="font-size: 0.75em; margin-top: 0.25rem;">Occluded Vision</span>
+        </h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="./static/videos/blind_insertion_tactile_May19_updated.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="content has-text-centered">
+        <h5 class="title is-6">
+          Tactile Exploration<br>
+          <span class="tag is-rounded hl" style="font-size: 0.75em; margin-top: 0.25rem;">Occluded Vision</span>
+        </h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="./static/videos/tactile_exp_May19.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="content has-text-centered">
+        <h5 class="title is-6">
+          Tactile Sorting<br>
+          <span class="tag is-rounded hl" style="font-size: 0.75em; margin-top: 0.25rem;">Low-Light Vision</span>
+        </h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="./static/videos/Tac_sort_tac_May19.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vision-Only Policy -->
+  <div class="content has-text-left" style="margin-top: 3rem;">
+    <h4 class="title is-5 has-text-centered"><span class="hl">Unsuccessful</span> Rollouts of <span class="hl">Vision</span>-only Policy</h4>
+  </div>
+
+  <div class="columns">
+    <div class="column">
+      <div class="content has-text-centered">
+        <h5 class="title is-6">
+          Blind Insertion<br>
+          <span class="tag is-rounded hl" style="font-size: 0.75em; margin-top: 0.25rem;">Occluded Vision</span>
+        </h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="./static/videos/blind_insertion_vision_May19.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="content has-text-centered">
+        <h5 class="title is-6">
+          Tactile Exploration<br>
+          <span class="tag is-rounded hl" style="font-size: 0.75em; margin-top: 0.25rem;">Occluded Vision</span>
+        </h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="./static/videos/tactile_exp_vis_May19.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="content has-text-centered">
+        <h5 class="title is-6">
+          Tactile Sorting<br>
+          <span class="tag is-rounded hl" style="font-size: 0.75em; margin-top: 0.25rem;">Low-Light Vision</span>
+        </h5>
+        <video autoplay controls muted loop playsinline width="100%">
+          <source src="./static/videos/Tac_sort_vis_May19.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+  </div>
+
+
+    <!-- Contact-rich Tasks -->
+    <div class="content has-text-left" style="margin-top: 3rem;">
+      <h3 class="title is-4 has-text-centered">Contact-Rich Manipulation</h3>
+      <p class="has-text-justified">
+        These tasks represent standardized assembly and insertion scenarios that are supported by our benchmark. 
+        They help identify key challenges in visual-tactile integration and highlight the potential of visuotactile policies in complex manipulation settings.
+      </p>
+    </div>
+
+    <!-- Visuotactile Policy -->
+    <div class="content has-text-left" style="margin-top: 2rem;">
+      <h4 class="title is-5 has-text-centered">
+        <span class="hl">Successful</span> Rollouts of <span class="hl">Visuotactile</span> Policy
+      </h4>
+    </div>
+
+    <div class="columns">
+      <div class="column">
+        <div class="content has-text-centered">
+          <h5 class="title is-6">Gear Assembly</h5>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/gear_assembly.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content has-text-centered">
+          <h5 class="title is-6">Power Plug Insertion</h5>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/PowerPlugInsertion.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+      <div class="column">
+        <div class="content has-text-centered">
+          <h5 class="title is-6">USB Insertion</h5>
+          <video autoplay controls muted loop playsinline width="100%">
+            <source src="./static/videos/USBInsertion.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Real-World Policy Rollouts</h2>
+        <h3 class="title is-4 has-text-centered" style="margin-bottom: 1rem;">
+          Performance Under Varying Lighting Conditions in Tactile Sorting
+        </h3>
+        <div class="content has-text-justified">
+          <p>
+            We evaluate the effectiveness of visuotactile and vision-only policies under different lighting conditions in a real-world tactile sorting task.
+            The robot must distinguish between two visually similar objects—a table tennis ball and a golf ball—and place them into the correct target bowls.
+            Please refer to our paper for detailed results.
+          </p>
+        </div>
+
+        <!-- Normal Light Rollouts -->
+        <div class="content has-text-centered" style="margin-top: 2rem;">
+          <h4 class="title is-5">Normal Lighting</h4>
+          <!-- Tabs for Normal Lighting Rollouts -->
+          <div class="tabs is-toggle is-centered" style="margin-bottom: 0;">
+            <ul id="normal-tabs">
+              <li class="is-active" data-tab="normal-vt">
+          <a href="javascript:void(0);">
+            Visuotactile Policy Rollouts <span class="tag is-success" style="margin-left: 0.5em;">13/15</span>
+          </a>
+              </li>
+              <li data-tab="normal-vo">
+          <a href="javascript:void(0);">
+            Vision-only Policy Rollouts <span class="tag is-warning" style="margin-left: 0.5em;">5/15</span>
+          </a>
+              </li>
+            </ul>
+          </div>
+          <div id="normal-vt" class="tab-content">
+            <div style="margin-top: 1.5em; margin-bottom: 0.25em;">
+              <h5 class="title is-6" style="margin-bottom: 0.5em;">
+          <span class="hl">Visuotactile</span> Policy Rollouts
+              </h5>
+              <p class="has-text-grey has-text-centered is-size-6" style="margin-bottom: 1em; margin-top: 0.25em;">
+          Success Rate: <span class="hl">13/15</span>
+              </p>
+            </div>
+            <video autoplay muted loop playsinline width="100%">
+              <source src="./static/videos/vistac_nomal_May18.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div id="normal-vo" class="tab-content is-hidden">
+            <div style="margin-top: 1.5em; margin-bottom: 0.25em;">
+              <h5 class="title is-6" style="margin-bottom: 0.5em;">
+          Vision-only Policy Rollouts
+              </h5>
+              <p class="has-text-grey has-text-centered is-size-6" style="margin-bottom: 1em; margin-top: 0.25em;">
+          Success Rate: <span class="hl">5/15</span>
+              </p>
+            </div>
+            <video autoplay muted loop playsinline width="100%">
+              <source src="./static/videos/vision_nomal_May18.mp4" type="video/mp4">
+            </video>
+          </div>
+          <script>
+            // Tabs for Normal Lighting Rollouts
+            document.querySelectorAll('#normal-tabs li').forEach(tab => {
+              tab.addEventListener('click', function() {
+          document.querySelectorAll('#normal-tabs li').forEach(t => t.classList.remove('is-active'));
+          document.getElementById('normal-vt').classList.add('is-hidden');
+          document.getElementById('normal-vo').classList.add('is-hidden');
+          tab.classList.add('is-active');
+          document.getElementById(tab.getAttribute('data-tab')).classList.remove('is-hidden');
+              });
+            });
+          </script>
+
+        <!-- Dim Light Rollouts -->
+        <div class="content has-text-centered" style="margin-top: 3rem;">
+          <h4 class="title is-5">Dim Lighting</h4>
+          <!-- Tabs for Dim Lighting Rollouts -->
+          <div class="tabs is-toggle is-centered" style="margin-bottom: 0;">
+            <ul id="dim-tabs">
+              <li class="is-active" data-tab="dim-vt">
+          <a href="javascript:void(0);">
+            Visuotactile Policy Rollouts <span class="tag is-success" style="margin-left: 0.5em;">5/15</span>
+          </a>
+              </li>
+              <li data-tab="dim-vo">
+          <a href="javascript:void(0);">
+            Vision-only Policy Rollouts <span class="tag is-warning" style="margin-left: 0.5em;">1/15</span>
+          </a>
+              </li>
+            </ul>
+          </div>
+          <div id="dim-vt" class="tab-content">
+            <div style="margin-top: 1.5em; margin-bottom: 0.25em;">
+              <h5 class="title is-6" style="margin-bottom: 0.5em;">
+          <span class="hl">Visuotactile</span> Policy Rollouts
+              </h5>
+              <p class="has-text-grey has-text-centered is-size-6" style="margin-bottom: 1em; margin-top: 0.25em;">
+          Success Rate: <span class="hl">5/15</span>
+              </p>
+            </div>
+            <video autoplay muted loop playsinline width="100%">
+              <source src="./static/videos/vistac_dim.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div id="dim-vo" class="tab-content is-hidden">
+            <div style="margin-top: 1.5em; margin-bottom: 0.25em;">
+              <h5 class="title is-6" style="margin-bottom: 0.5em;">
+          Vision-only Policy Rollouts
+              </h5>
+              <p class="has-text-grey has-text-centered is-size-6" style="margin-bottom: 1em; margin-top: 0.25em;">
+          Success Rate: <span class="hl">1/15</span>
+              </p>
+            </div>
+            <video autoplay muted loop playsinline width="100%">
+              <source src="./static/videos/vision_dim.mp4" type="video/mp4">
+            </video>
+          </div>
+          <script>
+            // Tabs for Dim Lighting Rollouts
+            document.querySelectorAll('#dim-tabs li').forEach(tab => {
+              tab.addEventListener('click', function() {
+          document.querySelectorAll('#dim-tabs li').forEach(t => t.classList.remove('is-active'));
+          document.getElementById('dim-vt').classList.add('is-hidden');
+          document.getElementById('dim-vo').classList.add('is-hidden');
+          tab.classList.add('is-active');
+          document.getElementById(tab.getAttribute('data-tab')).classList.remove('is-hidden');
+              });
+            });
+          </script>
+
+<!-- Failure Cases -->
+<section class="section" id="failures">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-centered">Failure Cases</h2>
+    <p class="has-text-justified" style="margin-bottom: 2rem;">
+      Failure cases in the visuotactile policy often stem from controller overshoot—although the object is correctly identified, it may be dropped slightly outside the target bowl. 
+      In contrast, due to the absence of tactile feedback, the vision-only policy frequently misidentifies the object or fails to determine the correct placement location, resulting in incorrect sorting.
+    </p>
+
+    <!-- Tabs for Visuotactile -->
+    <h3 class="title is-5">Visuotactile Failures</h3>
+    <style>
+      /* Custom tab styles to match the site theme */
+      .tabs.is-toggle li.is-active a {
+      background-color: var(--highlight-dark);
+      color: #fff !important;
+      border-color: var(--highlight-dark) !important;
+      }
+      .tabs.is-toggle li a {
+      background-color: var(--highlight-light);
+      color: var(--highlight-dark);
+      border-color: var(--highlight-light);
+      transition: background 0.2s, color 0.2s;
+      }
+      .tabs.is-toggle li:not(.is-active) a:hover {
+      background-color: var(--highlight);
+      color: #fff;
+      }
+      .tabs.is-toggle ul {
+      border-bottom: none;
+      }
+      .tabs.is-toggle li {
+      margin-bottom: 0;
+      }
+    </style>
+    <div class="tabs is-toggle is-centered">
+      <ul id="vt-tabs">
+      <li class="is-active" data-tab="vt1"><a href="javascript:void(0);">Ball Bounced Off Bowl</a></li>
+      <li data-tab="vt2"><a href="javascript:void(0);">Off-Target Placement</a></li>
+      </ul>
+    </div>
+    <div id="vt1" class="tab-content">
+      <p class="has-text-grey has-text-centered is-size-6">Normal Lighting</p>
+      <video autoplay muted loop playsinline width="100%">
+      <source src="./static/videos/vistac_normal_f2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div id="vt2" class="tab-content is-hidden">
+      <p class="has-text-grey has-text-centered is-size-6">Dim Lighting</p>
+      <video autoplay muted loop playsinline width="100%">
+      <source src="./static/videos/vistac_dim_f1.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <!-- Tabs for Vision-only -->
+    <h3 class="title is-5" style="margin-top: 2rem;">Vision-only Failures</h3>
+    <div class="tabs is-toggle is-centered">
+      <ul id="vo-tabs">
+      <li class="is-active" data-tab="vo1"><a href="javascript:void(0);">Incomplete Placement</a></li>
+      <li data-tab="vo2"><a href="javascript:void(0);">Incorrect Placement</a></li>
+      </ul>
+    </div>
+    <div id="vo1" class="tab-content" style="background-color: var(--background);">
+      <p class="has-text-grey has-text-centered is-size-6">Normal Lighting</p>
+      <video autoplay muted loop playsinline width="100%">
+      <source src="./static/videos/vision_normal_f3.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div id="vo2" class="tab-content is-hidden" style="background-color: var(--background);">
+      <p class="has-text-grey has-text-centered is-size-6">Dim Lighting</p>
+      <video autoplay muted loop playsinline width="100%">
+      <source src="./static/videos/vision_dim_f3.mp4" type="video/mp4">
+      </video>
+    </div>
+    </div>
+
+    <script>
+    // Visuotactile tabs
+    document.querySelectorAll('#vt-tabs li').forEach(tab => {
+      tab.addEventListener('click', function() {
+      document.querySelectorAll('#vt-tabs li').forEach(t => t.classList.remove('is-active'));
+      document.getElementById('vt1').classList.add('is-hidden');
+      document.getElementById('vt2').classList.add('is-hidden');
+      tab.classList.add('is-active');
+      document.getElementById(tab.getAttribute('data-tab')).classList.remove('is-hidden');
+      });
+    });
+
+    // Vision-only tabs
+    document.querySelectorAll('#vo-tabs li').forEach(tab => {
+      tab.addEventListener('click', function() {
+      document.querySelectorAll('#vo-tabs li').forEach(t => t.classList.remove('is-active'));
+      document.getElementById('vo1').classList.add('is-hidden');
+      document.getElementById('vo2').classList.add('is-hidden');
+      tab.classList.add('is-active');
+      document.getElementById(tab.getAttribute('data-tab')).classList.remove('is-hidden');
+      });
+    });
+    </script>
+  </section>
+
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Sim-to-Real Comparison: TacSL Simulator vs. GelSight Mini</h2>
+        
+        <div class="content has-text-justified">
+          <p>
+            We compare tactile images generated in the TacSL simulator with those captured using the GelSight Mini sensor.
+            The examples below feature several representative objects from the ManiFeel benchmark and demonstrate the visual and structural similarities between simulated and real tactile feedback.
+          </p>
+        </div>
+        
+        <div class="has-text-centered" style="margin-top: 2rem;">
+          <figure class="image is-fullwidth" style="max-width: 100%;">
+            <img src="./static/images/Fig2.png" alt="TacSL Simulator vs. GelSight Mini" style="width: 100%; height: auto;">
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section">
+<div class="container is-max-desktop">
+<div class="columns is-centered">
+<div class="column is-full-width">
+<h2 class="title is-3">Related Work</h2>
+<div class="content has-text-justified">
+<!-- <p>
+              In our previous work <a href="https://ieeexplore.ieee.org/document/10960613" style="color: orange;">UniT</a>, and it is a simple-to-train, plug-and-play approach to tactile representation learning that uses VQGAN to learn a compact latent space from tactile images of a single simple object, zero-shot transfers to diverse downstream perception and manipulation policy tasks
+          </p> -->
+<p>
+            Go our lab website for more information about our research: <a class="hl" href="https://www.purduemars.com/publication">Purdue MARS Lab</a>.
+          </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>
+@misc{luu2025manifeelbenchmarkingunderstandingvisuotactile,
+  title        = {ManiFeel: Benchmarking and Understanding Visuotactile Manipulation Policy Learning},
+  author       = {Quan Khanh Luu and Pokuang Zhou and Zhengtong Xu and Zhiyuan Zhang and Qiang Qiu and Yu She},
+  year         = {2025},
+  eprint       = {2505.18472},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.RO},
+  url          = {https://arxiv.org/abs/2505.18472}
+}
+    </code></pre>
+  </div>
+</section>
+<footer class="footer">
+<div class="container">
+<div class="content has-text-centered">
+<a class="external-link" disabled="" href="https://github.com/ZhengtongXu">
+<i class="fab fa-github"></i>
+</a>
+</div>
+<div class="columns is-centered">
+<div class="column is-8">
+<div class="content">
+<p>
+            This website is licensed under a <a href="http://creativecommons.org/licenses/by-sa/4.0/" rel="license">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+<p>
+            The template of this website is adapted from <a href="https://github.com/nerfies/nerfies.github.io">nerfies</a>.
+          </p>
+</div>
+</div>
+</div>
+</div>
+</footer>
+</body>
+</html>
