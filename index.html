@@ -3,10 +3,10 @@
 <html>
 <head>
 <meta charset="utf-8"/>
-<meta content="ManiFeel: Benchmarking and Understanding Visuotactile Manipulation Policy Learning" name="description"/>
+<meta content="ProTac: Vision-based Proximity and Tactile Sensing for Robot Arms: Design, Perception, and Control" name="description"/>
 <meta content="Representation Learning, Tactile Sensing, Imitation Learning" name="keywords"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>ManiFeel: Benchmarking and Understanding Visuotactile Manipulation Policy Learning</title>
+<title>Vision-based Proximity and Tactile Sensing for Robot Arms: Design, Perception, and Control</title>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
 <script>
@@ -90,38 +90,32 @@ h1, h2, h3, h4, h5, h6 {
 <div class="container is-max-desktop">
 <div class="columns is-centered">
 <div class="column has-text-centered">
-<h1 class="title is-1 publication-title">ManiFeel: Benchmarking and Understanding Visuotactile Manipulation Policy Learning</h1>
+<h1 class="title is-1 publication-title">Vision-based Proximity and Tactile Sensing for Robot Arms: Design, Perception, and Control</h1>
 <div class="is-size-5 publication-authors">
 <span class="author-block">
-<a href="https://scholar.google.com/citations?user=cy6AlQMAAAAJ&amp;hl=en">Quan Khanh Luu</a><sup>*</sup>,
+<a href="https://quan-luu.github.io/">Quan Khanh Luu</a>,
             </span>
 <span class="author-block">
-<a href="https://scholar.google.com/citations?user=GSEFMvQAAAAJ&amp;hl=en-US&amp;oi=ao">Pokuang Zhou</a><sup>*</sup>,
+<a href="https://scholar.google.com/citations?user=8vRPgzoAAAAJ&hl=en">Dinh Quang Nguyen</a>,
             </span>
 <span class="author-block">
-<a href="https://zhengtongxu.github.io/website/">Zhengtong Xu</a><sup>*</sup>,
+<a href="https://fp.jaist.ac.jp/public/Default2.aspx?id=766&l=1">Nhan Huu Nguyen</a>,
             </span>
 <span class="author-block">
-<a href="https://openreview.net/profile?id=~Zhiyuan_Zhang18">Zhiyuan Zhang</a>,
+<a href="https://scholar.google.com/citations?user=cEKEYFAAAAAJ&hl=en&oi=sra">Nam Phuong Dam</a>,
             </span>
 <span class="author-block">
-<a href="https://engineering.purdue.edu/~qqiu/#home">Qiang Qiu</a>,
+<a href="https://fp.jaist.ac.jp/public/Default2.aspx?id=669&l=1">Van Anh Ho</a>
             </span>
-<span class="author-block">
-<a href="https://www.purduemars.com/">Yu She</a>
-</span>
 </div>
 <div class="is-size-5 publication-authors">
-<span class="author-block"><sup>*</sup>Equal Contribution</span>
-</div>
-<div class="is-size-5 publication-authors">
-<span class="author-block">Purdue University, USA</span>
+<span class="author-block">Japan Advanced Institue of Science and Technology (JAIST), Japan</span>
 </div>
 <div class="column has-text-centered">
 <div class="publication-links">
 <!-- PDF Link. -->
 <span class="link-block">
-<a class="external-link button is-normal is-rounded is-dark" href="https://www.arxiv.org/pdf/2505.18472">
+<a class="external-link button is-normal is-rounded is-dark" href="">
 <span class="icon">
 <i class="ai ai-arxiv"></i>
 </span>
@@ -130,7 +124,7 @@ h1, h2, h3, h4, h5, h6 {
 </span>
 <!-- Video Link. -->
 <span class="link-block">
-<a class="external-link button is-normal is-rounded is-dark" href="https://drive.google.com/file/d/1XTDJ-G4aIvoBlMqqecftmqVNalBPz_Mz/view?usp=sharing">
+<a class="external-link button is-normal is-rounded is-dark" href="https://www.youtube.com/watch?v=5DhAhlTVxzg">
 <span class="icon">
 <i class="fab fa-youtube"></i>
 </span>
@@ -139,11 +133,11 @@ h1, h2, h3, h4, h5, h6 {
 </span>
 <!-- Code Link. -->
 <span class="link-block">
-<a class="external-link button is-normal is-rounded is-dark" href="">
+<a class="external-link button is-normal is-rounded is-dark" href="https://github.com/Ho-lab-jaist/protac">
 <span class="icon">
 <i class="fab fa-github"></i>
 </span>
-<span>Code (Coming Soon)</span>
+<span>Code</span>
 </a>
 </span>
 <!-- Dataset Link. -->
@@ -167,19 +161,38 @@ h1, h2, h3, h4, h5, h6 {
 <div class="columns is-centered has-text-centered">
 <div class="column is-four-fifths">
 <h2 class="title is-3">Abstract</h2>
+
 <div class="content has-text-centered">
-<img alt="First Page Image" id="teaser" src="./static/images/Figure1.jpg" width="100%"/>
+<img alt="First Page Image" id="teaser" src="./static/images/Figure1a.png" width="80%"/>
 <div class="content has-text-justified">
 <br>
 <p>
-            ManiFeel, a reproducible and scalable simulation benchmark for studying supervised visuotactile manipulation policies across a diverse set of tasks and scenarios. ManiFeel presents a comprehensive benchmark suite spanning a diverse set of manipulation tasks, evaluating various policies, input modalities, and tactile representation methods. Through
-            extensive experiments, our analysis reveals key factors that influence supervised visuotactile policy learning, identifies the types of tasks where tactile sensing is most beneficial, and highlights promising directions for future research in visuotactile policy learning. ManiFeel aims to establish a reproducible benchmark for
-            supervised visuotactile policy learning, supporting progress in visuotactile manipulation and perception. To facilitate future research and ensure reproducibility, we will release our codebase, datasets, training logs, and pretrained checkpoints.
-          </p>
+    Soft-bodied robots with multimodal sensing capabilities hold promise for versatile and user-friendly robotics.
+    However, seamlessly integrating multiple sensing functionalities into soft artificial skins remains a challenge
+    due to compatibility issues between soft materials and conventional electronics.
+
+    While vision-based tactile sensing has enabled simple and effective sensor designs for robotic touch,
+    there has been limited exploration of this technique for intrinsic multimodal sensing in large-sized soft robot bodies.
+
+    To address this gap, this paper introduces a novel vision-based soft sensing technique, named ProTac,
+    capable of operating either in tactile or proximity sensing modes. This vision-based sensing technology relies
+    on a soft functional skin that can actively switch its optical properties between opaque and transparent states.
+
+    Furthermore, the paper develops efficient learning pipelines for proximity and tactile perceptions,
+    as well as sensing strategies enabled through the timing activation of the two sensing modes.
+
+    The effectiveness of the soft sensing technology is demonstrated through a soft ProTac link,
+    which can be integrated into newly constructed or existing commercial robot arms.
+
+    Results suggest that robots integrated with the ProTac link, along with rigorous control formulation,
+    can perform safe and purposeful control actions, enhancing human-robot interaction scenarios
+    and enabling motion control tasks that are difficult with conventional rigid links.
+</p>
 </div>
 </div>
 </div>
 <!--/ Abstract. -->
+
 </div>
 </section>
 
@@ -647,7 +660,9 @@ h1, h2, h3, h4, h5, h6 {
               In our previous work <a href="https://ieeexplore.ieee.org/document/10960613" style="color: orange;">UniT</a>, and it is a simple-to-train, plug-and-play approach to tactile representation learning that uses VQGAN to learn a compact latent space from tactile images of a single simple object, zero-shot transfers to diverse downstream perception and manipulation policy tasks
           </p> -->
 <p>
-            Go our lab website for more information about our research: <a class="hl" href="https://www.purduemars.com/publication">Purdue MARS Lab</a>.
+            Go our lab website for more information about our research: <a class="hl" href="https://www.jaist.ac.jp/ms/labs/vanho/index-e.html">
+Soft Haptics Lab.
+</a>
           </p>
 </div>
 </div>
@@ -657,7 +672,7 @@ h1, h2, h3, h4, h5, h6 {
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
     <h2 class="title">BibTeX</h2>
-    <pre><code>
+    <!-- <pre><code>
 @misc{luu2025manifeelbenchmarkingunderstandingvisuotactile,
   title        = {ManiFeel: Benchmarking and Understanding Visuotactile Manipulation Policy Learning},
   author       = {Quan Khanh Luu and Pokuang Zhou and Zhengtong Xu and Zhiyuan Zhang and Qiang Qiu and Yu She},
@@ -667,13 +682,13 @@ h1, h2, h3, h4, h5, h6 {
   primaryClass = {cs.RO},
   url          = {https://arxiv.org/abs/2505.18472}
 }
-    </code></pre>
+    </code></pre> -->
   </div>
 </section>
 <footer class="footer">
 <div class="container">
 <div class="content has-text-centered">
-<a class="external-link" disabled="" href="https://github.com/ZhengtongXu">
+<a class="external-link" disabled="" href="https://github.com/quan-luu">
 <i class="fab fa-github"></i>
 </a>
 </div>
