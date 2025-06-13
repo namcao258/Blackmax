@@ -1,4 +1,4 @@
-# protac-website
+# ProTac Website
 Website for ProTac paper and related projects.
 The template of this website is adapted from https://github.com/nerfies/nerfies.github.io
 
