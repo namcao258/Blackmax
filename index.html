@@ -218,8 +218,8 @@ h1, h2, h3, h4, h5, h6 {
         This concept enables a switchable, vision-based sensing mechanism for the soft robotic link.
       </p>
       <div class="has-text-centered" style="margin-top: 1rem;">
-        <video autoplay muted loop controls playsinline width="100%">
-          <source src="/videos/protac_inspiration.mp4" type="video/mp4">
+        <video autoplay muted loop controls playsinline width="90%">
+          <source src="videos/protac_inspiration.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -234,7 +234,7 @@ h1, h2, h3, h4, h5, h6 {
       </p>
       <div class="has-text-centered" style="margin-top: 1rem;">
         <video autoplay muted loop controls playsinline width="90%">
-          <source src="/videos/protac_design.mp4" type="video/mp4">
+          <source src="videos/protac_design.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -244,13 +244,13 @@ h1, h2, h3, h4, h5, h6 {
     <div class="box" style="margin-top: 2rem;">
       <h3 class="title is-4">Working Principle: Transparency Switching</h3>
       <p class="has-text-justified">
-        ProTac operates in two modes: in the opaque state, it detects contact through vision-based deformation tracking; 
-        in the transparent state, it performs proximity sensing using light scattering and depth estimation. 
+        ProTac operates in two modes: in the <span class="hl">opaque</span> state, it detects contact across the large-area skin using a deep neural network applied to marker-featured images; 
+        in the <span class="hl">transparent</span> state, it performs proximity sensing via monocular depth estimation applied to see-through images.
         This switchable mechanism enables dual-mode perception in a single soft sensing link.
       </p>
       <div class="has-text-centered" style="margin-top: 1rem;">
         <video autoplay muted loop controls playsinline width="90%">
-          <source src="/videos/protac_principle.mp4" type="video/mp4">
+          <source src="videos/protac_principle.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -269,25 +269,46 @@ h1, h2, h3, h4, h5, h6 {
         <div class="box" style="margin-top: 2rem;">
           <h3 class="title is-4">Proximity Sensing</h3>
           <p class="has-text-justified">
-            ProTac leverages light scattering in its transparent mode to detect nearby objects, supporting pre-contact awareness.
+            In its <span class="hl">transparent</span> state, ProTac estimates the proximity of nearby
+            objects, providing pre-contact awareness for safe interaction.
           </p>
-          <!-- Optional video or image here -->
+          <div class="has-text-centered" style="margin-top: 1rem;">
+            <video autoplay muted loop controls playsinline width="90%">
+              <source src="videos/proximity_sensing.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
 
         <!-- Tactile Sensing -->
         <div class="box" style="margin-top: 2rem;">
           <h3 class="title is-4">Tactile Sensing</h3>
           <p class="has-text-justified">
-            In its opaque mode, ProTac functions as a tactile sensor using vision-based deformation tracking of the internal gel layer.
+            In the <span class="hl">opaque</span> state, ProTac functions as a tactile modality by tracking
+            skin-marker deformations using a deep neural network to infer contact location and intensity.
           </p>
+          <div class="has-text-centered" style="margin-top: 1rem;">
+            <video autoplay muted loop controls playsinline width="90%">
+              <source src="videos/tactile_sensing.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
 
         <!-- Flickering Sensing -->
         <div class="box" style="margin-top: 2rem;">
           <h3 class="title is-4">Flickering Sensing</h3>
           <p class="has-text-justified">
-            ProTac can rapidly toggle between modes to achieve a hybrid flickering sensing regime, optimizing responsiveness and resolution.
+            The <span class="hl"><em>flickering</em></span> mode enables near-simultaneous proximity and tactile perception by rapidly
+            switching between the two sensing states at a high frequency.
+            This enables ProTac’s unique operational mode, providing simultaneous proximity and contact awareness.
           </p>
+          <div class="has-text-centered" style="margin-top: 1rem;">
+            <video autoplay muted loop controls playsinline width="90%">
+              <source src="videos/flickering_sensing.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
         </div>
       </div>
     </div>

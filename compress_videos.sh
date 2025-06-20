@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-# Compress all .mp4 files in _videos/ and save them to videos/
+# Compress all .mp4 files in _videos/ and save them to videos/ (preserve 1080p)
+# Skip compression if the output file already exists
 
 SRC_DIR="_videos"
 DST_DIR="videos"
@@ -20,10 +21,14 @@ for src in "$SRC_DIR"/*.mp4; do
   filename="$(basename "$src")"
   dst="$DST_DIR/$filename"
 
-  echo "Compressing $src → $dst"
+  # Skip if already compressed
+  if [ -f "$dst" ]; then
+    echo "🔁 Skipping $filename — already exists in $DST_DIR"
+    continue
+  fi
 
+  echo "🔄 Compressing $filename …"
   ffmpeg -y -i "$src" \
-    -vf "scale=-2:720" \
     -c:v libx264 -crf "$CRF" -preset "$PRESET" \
     -c:a aac -b:a 160k \
     "$dst"
@@ -31,4 +36,4 @@ for src in "$SRC_DIR"/*.mp4; do
   echo "✅ Done: $dst"
 done
 
-echo "All videos processed!"
+echo "🎉 All videos processed!"
