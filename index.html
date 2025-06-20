@@ -316,27 +316,96 @@ h1, h2, h3, h4, h5, h6 {
 </section>
 
 <!-- ProTac Section: Control -->
+<!-- ProTac Section: Control -->
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered">ProTac Control</h2>
 
-        <!-- Adaptive Motion Control -->
+        <!-- Multimodal ProTac Control -->
         <div class="box" style="margin-top: 2rem;">
-          <h3 class="title is-4">Adaptive Motion Control with Obstacle and Contact Awareness</h3>
-          <p class="has-text-justified">
-            By incorporating proximity and tactile feedback, ProTac enables smooth, reactive motion control in constrained environments.
-          </p>
+          <h3 class="title is-4">Multimodal ProTac Control</h3>
+
+          <!-- Adaptive Motion Control -->
+          <div style="margin-top: 1.5rem;">
+            <h4 class="title is-5">Adaptive Motion Control with Obstacle and Contact Awareness</h4>
+            <p class="has-text-justified">
+              By combining tactile and proximity sensing, ProTac delivers resilient, contact-reactive motion control 
+              in environments with unavoidable physical obstacles and contacts.
+            </p>
+            <div class="has-text-centered" style="margin-top: 1rem;">
+              <video autoplay muted loop controls playsinline width="90%">
+                <source src="videos/adaptive_motion_control.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <!-- Human-Robot Collaboration -->
+          <div style="margin-top: 2rem;">
+            <h4 class="title is-5">Multi-phase Human-Robot Interaction</h4>
+            <p class="has-text-justified">
+              ProTac supports multiphase human-robot interaction by distinguishing between scenarios with and without 
+              physical interaction intent. This facilitates shared autonomy and close human collaboration.
+            </p>
+
+            <!-- Case 1: Human passerby -->
+            <h4 class="title is-5 has-text-centered" style="margin-top: 2rem;">
+              Human Passerby without Physical Interaction Intention
+            </h4>
+            <div class="has-text-centered" style="margin-top: 1rem;">
+              <video autoplay muted loop controls playsinline width="90%">
+                <source src="videos/hri_a.mp4" type="video/mp4">
+              </video>
+            </div>
+
+            <!-- Case 2: Human with intent -->
+            <h4 class="title is-5 has-text-centered" style="margin-top: 2rem;">
+              Human with Physical Interaction Intention
+            </h4>
+            <div class="has-text-centered" style="margin-top: 1rem;">
+              <video autoplay muted loop controls playsinline width="90%">
+                <source src="videos/hri_b.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
         </div>
 
-        <!-- Human-Robot Collaboration -->
+        <!-- Other ProTac Control -->
         <div class="box" style="margin-top: 2rem;">
-          <h3 class="title is-4">Multiphase Human-Robot Collaboration with Multimodal Sensing</h3>
-          <p class="has-text-justified">
-            ProTac facilitates nuanced interactions in collaborative scenarios, supporting role transitions and shared autonomy.
-          </p>
+          <h3 class="title is-4">Other ProTac Control Integration</h3>
+
+          <!-- Admittance Control -->
+          <div style="margin-top: 1.5rem;">
+            <h4 class="title is-5">Admittance-Based Reflex Control</h4>
+            <p class="has-text-justified">
+              ProTac enables reflexive motion through admittance control, 
+              responding flexibly to approaching obstacles and unexpected contacts.
+            </p>
+            <div class="has-text-centered" style="margin-top: 1rem;">
+              <video autoplay muted loop controls playsinline width="90%">
+                <source src="videos/admittance_control.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          <!-- Speed Regulation -->
+          <div style="margin-top: 2rem;">
+            <h4 class="title is-5">Proximity-Aware Speed Regulation</h4>
+            <p class="has-text-justified">
+              By continuously estimating the distance to nearby objects, ProTac dynamically adjusts the motion speed, which is expected to ensure safe operation in shared environments.
+            </p>
+            <div class="has-text-centered" style="margin-top: 1rem;">
+              <video autoplay muted loop controls playsinline width="90%">
+                <source src="videos/speed_regulation.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </div>
