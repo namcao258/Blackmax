@@ -6,7 +6,7 @@
 <meta content="ProTac: Vision-based Proximity and Tactile Sensing for Robot Arms: Design, Perception, and Control" name="description"/>
 <meta content="Representation Learning, Tactile Sensing, Imitation Learning" name="keywords"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
-<title>Vision-based Proximity and Tactile Sensing for Robot Arms: Design, Perception, and Control</title>
+<title>Shape-Changing Soft Robotic Skin with Vision-based Tactile Sensing for Human-Robot Interaction</title>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
 <script>
@@ -90,32 +90,27 @@ h1, h2, h3, h4, h5, h6 {
 <div class="container is-max-desktop">
 <div class="columns is-centered">
 <div class="column has-text-centered">
-<h1 class="title is-1 publication-title">Vision-based Proximity and Tactile Sensing for Robot Arms: Design, Perception, and Control</h1>
+<h1 class="title is-1 publication-title">Shape-Changing Soft Robotic Skin with Vision-based Tactile Sensing for Human-Robot Interaction</h1>
 <div class="is-size-5 publication-authors">
+<span class="author-block">
+<a href="https://scholar.google.com/citations?user=cEKEYFAAAAAJ&hl=en&oi=sra">Nam Phuong Dam</a>,
+            </span> 
 <span class="author-block">
 <a href="https://quan-luu.github.io/">Quan Khanh Luu</a>,
             </span>
 <span class="author-block">
-<a href="https://scholar.google.com/citations?user=8vRPgzoAAAAJ&hl=en">Dinh Quang Nguyen</a>,
-            </span>
-<span class="author-block">
-<a href="https://fp.jaist.ac.jp/public/Default2.aspx?id=766&l=1">Nhan Huu Nguyen</a>,
-            </span>
-<span class="author-block">
-<a href="https://scholar.google.com/citations?user=cEKEYFAAAAAJ&hl=en&oi=sra">Nam Phuong Dam</a>,
-            </span>
 <span class="author-block">
 <a href="https://fp.jaist.ac.jp/public/Default2.aspx?id=669&l=1">Van Anh Ho</a>
             </span>
 </div>
-<div class="is-size-5 publication-authors">
+<div class="is-size-3 publication-authors">
 <span class="author-block">Japan Advanced Institue of Science and Technology (JAIST), Japan</span>
 </div>
 <div class="column has-text-centered">
 <div class="publication-links">
 <!-- PDF Link. -->
 <span class="link-block">
-<a class="external-link button is-normal is-rounded is-dark" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11097357">
+<a class="external-link button is-normal is-rounded is-dark" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=10769816">
 <span class="icon">
 <i class="ai ai-arxiv"></i>
 </span>
@@ -133,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
 </span>
 <!-- Code Link. -->
 <span class="link-block">
-<a class="external-link button is-normal is-rounded is-dark" href="https://github.com/Ho-lab-jaist/protac">
+<a class="external-link button is-normal is-rounded is-dark" href="https://github.com/namcao258/Blackmax_regression">
 <span class="icon">
 <i class="fab fa-github"></i>
 </span>
@@ -163,30 +158,11 @@ h1, h2, h3, h4, h5, h6 {
 <h2 class="title is-3">Abstract</h2>
 
 <div class="content has-text-centered">
-<img alt="First Page Image" id="teaser" src="./static/images/Figure1a.png" width="80%"/>
+<img alt="First Page Image" id="teaser" src="./static/images/Proposed.PNG" width="50%"/>
 <div class="content has-text-justified">
 <br>
 <p>
-    Soft-bodied robots with multimodal sensing capabilities hold promise for versatile and user-friendly robotics.
-    However, seamlessly integrating multiple sensing functionalities into soft artificial skins remains a challenge
-    due to compatibility issues between soft materials and conventional electronics.
-
-    While vision-based tactile sensing has enabled simple and effective sensor designs for robotic touch,
-    there has been limited exploration of this technique for intrinsic multimodal sensing in large-sized soft robot bodies.
-
-    To address this gap, this paper introduces a novel vision-based soft sensing technique, named ProTac,
-    capable of operating either in tactile or proximity sensing modes. This vision-based sensing technology relies
-    on a soft functional skin that can actively switch its optical properties between opaque and transparent states.
-
-    Furthermore, the paper develops efficient learning pipelines for proximity and tactile perceptions,
-    as well as sensing strategies enabled through the timing activation of the two sensing modes.
-
-    The effectiveness of the soft sensing technology is demonstrated through a soft ProTac link,
-    which can be integrated into newly constructed or existing commercial robot arms.
-
-    Results suggest that robots integrated with the ProTac link, along with rigorous control formulation,
-    can perform safe and purposeful control actions, enhancing human-robot interaction scenarios
-    and enabling motion control tasks that are difficult with conventional rigid links.
+    Recent developments of vision-based tactile sensors primarily focus on small-sized and fixed-structured robot bodies, while the application of this sensing technique for whole-body, shape-changing robots remains a challenge. To address this problem, this study introduces a soft, changeable structured robot with integrated whole-body tactile sensing. The proposed robot system features a compact mechanism for adjusting the robot’s height, and a camera system for vision-based tactile sensing, which are collectively covered by a marker-embedded soft robot skin. Additionally, a data-driven tactile sensing approach is developed to enable the robot to detect contacts across the entire robot body with varying heights. The preliminary results and showcases demonstrate the promise of the proposed system in facilitating robot operations in unstructured environments and enhancing human-robot interaction scenarios.
 </p>
 </div>
 </div>
@@ -201,7 +177,7 @@ h1, h2, h3, h4, h5, h6 {
   <div class="container is-max-desktop">
     <div class="columns is-centered">
       <div class="column is-full-width has-text-centered">
-        <h2 class="title is-3">ProTac Design</h2>
+        <h2 class="title is-3">Design and Fabrication</h2>
         <p class="is-size-5 has-text-justified" style="margin-top: 1rem;">
           We introduce <span class="hl">ProTac</span>, a vision-based soft sensing link with controllable optical properties. 
           Its design integrates <span class="hl">tactile</span> and <span class="hl">proximity</span> sensing into a soft robotic link, enabling 
@@ -210,7 +186,7 @@ h1, h2, h3, h4, h5, h6 {
       </div>
     </div>
 
-    <!-- Inspiration Video -->
+    <!-- Inspiration Video
     <div class="box" style="margin-top: 2rem;">
       <h3 class="title is-4">Inspiration from Electrochromic Windows</h3>
       <p class="has-text-justified">
@@ -223,26 +199,39 @@ h1, h2, h3, h4, h5, h6 {
           Your browser does not support the video tag.
         </video>
       </div>
-    </div>
+    </div> -->
 
     <!-- Design Overview Video -->
     <div class="box" style="margin-top: 2rem;">
       <h3 class="title is-4">Internal Design and Construction</h3>
       <p class="has-text-justified">
-        ProTac features a modular cylindrical structure composed of a soft PDLC skin, internal markers, 
-        embedded cameras, and a supporting brace. This design enables effective multimodal sensing over a large surface area.
+        *************************************
       </p>
       <div class="has-text-centered" style="margin-top: 1rem;">
         <video autoplay muted loop controls playsinline width="90%">
-          <source src="videos/protac_design.mp4" type="video/mp4">
+          <source src="videos/Design.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
+      </div>
+    </div>
+ </section>   
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">Working Principle</h2>
+        <p class="is-size-5 has-text-justified" style="margin-top: 1rem;">
+          We introduce <span class="hl">ProTac</span>, a vision-based soft sensing link with controllable optical properties. 
+          Its design integrates <span class="hl">tactile</span> and <span class="hl">proximity</span> sensing into a soft robotic link, enabling 
+          <span class="hl">whole-body</span>, contact-rich, and proximity-aware manipulation.
+        </p>
       </div>
     </div>
 
     <!-- Working Principle Video -->
     <div class="box" style="margin-top: 2rem;">
-      <h3 class="title is-4">Working Principle: Transparency Switching</h3>
+      <h3 class="title is-4">Working Principle</h3>
       <p class="has-text-justified">
         ProTac operates in two modes: in the <span class="hl">opaque</span> state, it detects contact across the large-area skin using a deep neural network applied to marker-featured images; 
         in the <span class="hl">transparent</span> state, it performs proximity sensing via monocular depth estimation applied to see-through images.
@@ -250,7 +239,7 @@ h1, h2, h3, h4, h5, h6 {
       </p>
       <div class="has-text-centered" style="margin-top: 1rem;">
         <video autoplay muted loop controls playsinline width="90%">
-          <source src="videos/protac_principle.mp4" type="video/mp4">
+          <source src="videos/Interface.mp4" type="video/mp4">
           Your browser does not support the video tag.
         </video>
       </div>
@@ -258,157 +247,38 @@ h1, h2, h3, h4, h5, h6 {
   </div>
 </section>
 
-<!-- ProTac Section: Perception -->
+
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">ProTac Perception</h2>
+      <div class="column is-full-width has-text-centered">
+        <h2 class="title is-3">Showcases</h2>
+        <p class="is-size-5 has-text-justified" style="margin-top: 1rem;">
+          We introduce <span class="hl">ProTac</span>, a vision-based soft sensing link with controllable optical properties. 
+          Its design integrates <span class="hl">tactile</span> and <span class="hl">proximity</span> sensing into a soft robotic link, enabling 
+          <span class="hl">whole-body</span>, contact-rich, and proximity-aware manipulation.
+        </p>
+      </div>
+    </div>
 
-        <!-- Proximity Sensing -->
-        <div class="box" style="margin-top: 2rem;">
-          <h3 class="title is-4">Proximity Sensing</h3>
-          <p class="has-text-justified">
-            In its <span class="hl">transparent</span> state, ProTac estimates the proximity of nearby
-            objects, providing pre-contact awareness for safe interaction.
-          </p>
-          <div class="has-text-centered" style="margin-top: 1rem;">
-            <video autoplay muted loop controls playsinline width="90%">
-              <source src="videos/proximity_sensing.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Tactile Sensing -->
-        <div class="box" style="margin-top: 2rem;">
-          <h3 class="title is-4">Tactile Sensing</h3>
-          <p class="has-text-justified">
-            In the <span class="hl">opaque</span> state, ProTac functions as a tactile modality 
-            by leveraging a sim-to-real learning pipeline to estimate contact location and intensity.
-          </p>
-          <div class="has-text-centered" style="margin-top: 1rem;">
-            <video autoplay muted loop controls playsinline width="90%">
-              <source src="videos/tactile_sensing.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-
-        <!-- Flickering Sensing -->
-        <div class="box" style="margin-top: 2rem;">
-          <h3 class="title is-4">Flickering Sensing</h3>
-          <p class="has-text-justified">
-            The <span class="hl"><em>flickering</em></span> mode enables near-simultaneous proximity and tactile perception by rapidly
-            switching between the two sensing states at a high frequency.
-            This enables ProTac’s unique operational mode, providing simultaneous proximity and contact awareness.
-          </p>
-          <div class="has-text-centered" style="margin-top: 1rem;">
-            <video autoplay muted loop controls playsinline width="90%">
-              <source src="videos/flickering_sensing.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
+    <!-- Working Principle Video -->
+    <div class="box" style="margin-top: 2rem;">
+      <h3 class="title is-4">Working Principle</h3>
+      <p class="has-text-justified">
+        ProTac operates in two modes: in the <span class="hl">opaque</span> state, it detects contact across the large-area skin using a deep neural network applied to marker-featured images; 
+        in the <span class="hl">transparent</span> state, it performs proximity sensing via monocular depth estimation applied to see-through images.
+        This switchable mechanism enables dual-mode perception in a single soft robot body.
+      </p>
+      <div class="has-text-centered" style="margin-top: 1rem;">
+        <video autoplay muted loop controls playsinline width="90%">
+          <source src="videos/Showcase.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ProTac Section: Control -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">ProTac Control</h2>
-
-        <!-- Multimodal ProTac Control -->
-        <div class="box" style="margin-top: 2rem;">
-          <h3 class="title is-4">Multimodal ProTac Control</h3>
-
-          <!-- Adaptive Motion Control -->
-          <div style="margin-top: 1.5rem;">
-            <h4 class="title is-5">Adaptive Motion Control with Obstacle and Contact Awareness</h4>
-            <p class="has-text-justified">
-              By combining tactile and proximity sensing, ProTac delivers resilient, contact-reactive motion 
-              in environments with unavoidable physical obstacles and contacts.
-            </p>
-            <div class="has-text-centered" style="margin-top: 1rem;">
-              <video autoplay muted loop controls playsinline width="90%">
-                <source src="videos/adaptive_motion_control.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-
-          <!-- Human-Robot Collaboration -->
-          <div style="margin-top: 2rem;">
-            <h4 class="title is-5">Multi-phase Human-Robot Interaction</h4>
-            <p class="has-text-justified">
-              ProTac supports multiphase human-robot interaction by distinguishing between scenarios with and without 
-              physical interaction intent. This facilitates shared autonomy and close human collaboration.
-            </p>
-
-            <!-- Case 1: Human passerby -->
-            <h4 class="title is-5 has-text-centered" style="margin-top: 2rem;">
-              Human Passerby without Physical Interaction Intention
-            </h4>
-            <div class="has-text-centered" style="margin-top: 1rem;">
-              <video autoplay muted loop controls playsinline width="90%">
-                <source src="videos/hri_a.mp4" type="video/mp4">
-              </video>
-            </div>
-
-            <!-- Case 2: Human with intent -->
-            <h4 class="title is-5 has-text-centered" style="margin-top: 2rem;">
-              Human with Physical Interaction Intention
-            </h4>
-            <div class="has-text-centered" style="margin-top: 1rem;">
-              <video autoplay muted loop controls playsinline width="90%">
-                <source src="videos/hri_b.mp4" type="video/mp4">
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <!-- Other ProTac Control -->
-        <div class="box" style="margin-top: 2rem;">
-          <h3 class="title is-4">Other ProTac Control Integration</h3>
-
-          <!-- Admittance Control -->
-          <div style="margin-top: 1.5rem;">
-            <h4 class="title is-5">Admittance-Based Reflex Control</h4>
-            <p class="has-text-justified">
-              ProTac enables reflexive motion through admittance control, 
-              responding flexibly to approaching obstacles and unexpected contacts.
-            </p>
-            <div class="has-text-centered" style="margin-top: 1rem;">
-              <video autoplay muted loop controls playsinline width="90%">
-                <source src="videos/admittance_control.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-
-          <!-- Speed Regulation -->
-          <div style="margin-top: 2rem;">
-            <h4 class="title is-5">Proximity-Aware Speed Regulation</h4>
-            <p class="has-text-justified">
-              By continuously estimating the distance to nearby objects, ProTac dynamically adjusts the motion speed, which is expected to ensure safe operation in shared environments.
-            </p>
-            <div class="has-text-centered" style="margin-top: 1rem;">
-              <video autoplay muted loop controls playsinline width="90%">
-                <source src="videos/speed_regulation.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</section>
 <!-- End ProTac Sections -->
 
 <!-- Related Work -->
