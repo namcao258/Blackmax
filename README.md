@@ -1,5 +1,5 @@
 # ProTac Website
-Website for ProTac paper and related projects.
+Website for Blackmax paper and related projects.
 The template of this website is adapted from https://namcao258.github.io/Blackmax/
 
 # Website License
